@@ -1,12 +1,21 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
+    "name": "geobas/stripe",
+    "description": "Lumen Boilerplate/Starter with Stripe",
     "keywords": ["framework", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "geobas",
+            "email": "ksenera@yahoo.com"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/lumen-framework": "^8.0"
+        "laravel/lumen-framework": "^8.0",
+        "illuminate/routing": "^8.50",
+        "maxsky/lumen-app-key-generator": "^1.0",
+        "laravel/cashier": "^13.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
