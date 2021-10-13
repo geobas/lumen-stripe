@@ -8,6 +8,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Helpers\HttpStatus as Status;
 use App\Contracts\Service\SubscriptionService as SubscriptionServiceContract;
 use App\Contracts\Repository\SubscriptionRepository as SubscriptionRepositoryContract;
 
@@ -32,21 +33,33 @@ class Subscription implements SubscriptionServiceContract
 
     public function plans(Request $request): JsonResponse
     {
-        return $this->repository->plans($request);
+        return response()->api([
+            'status' => Status::OK,
+            'data' => $this->repository->plans($request),
+        ], Status::OK);
     }
 
     public function create(Request $request): JsonResponse
     {
-        return $this->repository->create($request);
+        return response()->api([
+            'status' => Status::OK,
+            'data' => $this->repository->create($request),
+        ], Status::OK);
     }
 
     public function subscribedTo(Request $request): JsonResponse
     {
-        return $this->repository->subscribedTo($request);
+        return response()->api([
+            'status' => Status::OK,
+            'data' => $this->repository->subscribedTo($request),
+        ], Status::OK);
     }
 
     public function cancelSubscription(Request $request): JsonResponse
     {
-        return $this->repository->cancelSubscription($request);
+        return response()->api([
+            'status' => Status::OK,
+            'data' => $this->repository->cancelSubscription($request),
+        ], Status::OK);
     }
 }
