@@ -9,9 +9,6 @@ namespace App\Exceptions;
 use Illuminate\Http\Request;
 use App\Helpers\HttpStatus as Status;
 
-/**
- * Used on CRUD routes.
- */
 class StripeServiceException extends BaseException
 {
     /**

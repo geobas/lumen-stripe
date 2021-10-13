@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Base exception to specify common functionality and methods.
+ */
+
 namespace App\Exceptions;
 
 use Log;
