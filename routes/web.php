@@ -18,18 +18,20 @@ $router->get('/', function () use ($router) {
 });
 
 /*********************** Routes for Subscription Billing ***********************/
-$router->get('subscriptions/plans', [
-    'as' => 'subscriptions.plans', 'uses' => 'SubscriptionController@plans',
-]);
+$router->group(['prefix' => 'subscriptions', 'middleware' => ['auth']], function () use ($router) {
+    $router->get('plans', [
+        'as' => 'subscriptions.plans', 'uses' => 'SubscriptionController@plans',
+    ]);
 
-$router->post('subscriptions/create', [
-    'as' => 'subscriptions.create', 'uses' => 'SubscriptionController@create',
-]);
+    $router->post('create', [
+        'as' => 'subscriptions.create', 'uses' => 'SubscriptionController@create',
+    ]);
 
-$router->get('subscriptions/user/plan/{planId}', [
-    'as' => 'subscriptions.user.plan', 'uses' => 'SubscriptionController@subscribedTo',
-]);
+    $router->get('user/plan/{planId}', [
+        'as' => 'subscriptions.user.plan', 'uses' => 'SubscriptionController@subscribedTo',
+    ]);
 
-$router->get('subscriptions/user/cancel/subscription', [
-    'as' => 'subscriptions.user.cancel.subscription', 'uses' => 'SubscriptionController@cancelSubscription',
-]);
+    $router->get('user/cancel/subscription', [
+        'as' => 'subscriptions.user.cancel.subscription', 'uses' => 'SubscriptionController@cancelSubscription',
+    ]);
+});

@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | We set the defaults guard to api and the api guards is ordered to
-    | use jwt driver.
+    | use 'fake-login' driver.
     |
     */
 
