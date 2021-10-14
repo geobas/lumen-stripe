@@ -12,10 +12,11 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/lumen-framework": "^8.0",
+        "darkaonline/swagger-lume": "^8.0",
         "illuminate/routing": "^8.50",
-        "maxsky/lumen-app-key-generator": "^1.0",
-        "laravel/cashier": "^13.4"
+        "laravel/cashier": "^13.4",
+        "laravel/lumen-framework": "^8.0",
+        "maxsky/lumen-app-key-generator": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -44,6 +45,9 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "swagger" : [
+            "./artisan swagger-lume:generate"
         ]
     }
 }
