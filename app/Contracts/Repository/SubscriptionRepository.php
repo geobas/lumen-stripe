@@ -23,6 +23,9 @@ interface SubscriptionRepository
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
+     *
+     * @throws \App\Exceptions\StripeServiceException
+     * @throws \App\Exceptions\InvalidValuesException
      */
     public function create(Request $request): array;
 
@@ -39,6 +42,8 @@ interface SubscriptionRepository
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
+     *
+     * @throws \App\Exceptions\SubscriptionNotFound
      */
     public function cancelSubscription(Request $request): array;
 }

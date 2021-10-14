@@ -9,6 +9,7 @@ namespace App\Repositories;
 use Throwable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Exceptions\SubscriptionNotFound;
 use App\Exceptions\StripeServiceException;
 use Stripe\Exception\InvalidRequestException;
 use App\Exceptions\InvalidValuesException;
@@ -75,6 +76,8 @@ class Subscription implements SubscriptionRepositoryContract
             $this->paymentService->cancelSubscription();
 
             return [];
+        } catch (InvalidRequestException $e) {
+            throw new SubscriptionNotFound($e->getMessage());
         } catch (Throwable $t) {
             Log::error($t->getMessage());
         }
