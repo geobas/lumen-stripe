@@ -1,4 +1,4 @@
-##  Lumen or Laravel Boilerplate/Starter App for Stripe payment processing 
+##  Lumen Boilerplate/Starter App for Stripe payment processing 
 
 ### Core Features
 * return all available subscription plans
@@ -15,4 +15,8 @@
 3. artisan key:generate
 4. Modify the generated .env accordingly
 5. artisan migrate:fresh --seed
+```
+### Generate Swagger documentation
+```
+composer swagger
 ```
